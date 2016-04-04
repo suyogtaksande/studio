@@ -1,0 +1,46 @@
+
+<div class="container">
+  <div class="row" style="margin-top: 85px;">
+    <div class="divider_dark divider-dark-color"></div>
+    <div class="row">
+      <div class="col-md-12">
+        <%= link_to 'New', new_portfolio_path , :class => "label-success btn btn-md" , :style => "float: right;" %>
+      </div>
+    </div>
+    <div class="col-md-12">
+    
+      <table class="table table-hover">
+        <thead class="table" >
+          <tr>
+            <th>Title</th>
+            <th>Details</th>
+            <th>Youtube Url</th>
+            <th>Image</th>
+            <th>Show</th>
+            <th>Edit</th>
+            <th>Destroy</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @portfolios.each do |portfolio| %>
+            <tr>
+              <td><%= portfolio.title %></td>
+              <td><%= portfolio.description %></td>
+              <td><%= portfolio.url %></td>
+              <td><%= image_tag portfolio.portfolio_image(:small) %></td>
+              <td><%= link_to 'Show', portfolio_path(portfolio.id), :class => "label-info btn btn-sm"%>
+              </td>
+              <td><%= link_to 'Edit', edit_portfolio_path(portfolio), :class => "color btn btn-sm"%></td>
+              <td><a href="/portfolios/<%=portfolio.id%>/delete" data-confirm="Are You Sure" data-method="get" class="label-danger btn btn-sm ">Delete</a>
+              <%#= link_to 'Destroy', portfolio, 'data-method' => :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %> 
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="divider_dark divider-dark-color"></div>
+  </div>
+</div>

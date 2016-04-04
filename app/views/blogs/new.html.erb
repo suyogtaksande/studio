@@ -1,0 +1,28 @@
+<%#= render 'blog' %>
+ 
+<%#= link_to 'Back', blogs_path %>
+
+
+<div class="container">
+  	<div class="row" style="margin-top: 85px;">
+	  	<h4 class="modal-title center">New Blog</h4>
+	  	<div class="col-md-3"></div>
+	  	<div class="col-md-6 divider_dark divider-dark-color"></div>
+	</div>
+    <div class="row">
+    <div class="col-md-3"></div>
+
+	      <div class="col-md-6 color-dark-font color-font-black">
+				<%= form_for @blog do |f| %>
+					<%= render :partial => "blog", :locals => { :f => f, :blog => @blog } %>
+					<%= f.submit "Save", :class=>"label-success btn btn-md" %>
+				<% end %>
+		  </div>
+	</div>
+	<div class="row">
+		<div class="col-md-3"></div>
+	    <div class="col-md-6 divider_dark divider-dark-color"></div>
+	</div>
+</div>
+
+</div>

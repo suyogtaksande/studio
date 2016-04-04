@@ -1,0 +1,328 @@
+<%# if current_user %>
+
+<%# else %>
+  <!-- Slide -->   
+  <section id="slide">   
+      <div id="slider" class="camera_wrap">
+        <!-- Item Slide style_one--> 
+        <div  data-src="img/slide/slides/1.jpg"></div>
+        <!-- End Item Slide style_one -->  
+
+        <!-- Item Slide style_one--> 
+        <div  data-src="img/slide/slides/2.jpg"></div>
+        <!-- End Item Slide style_one -->  
+      </div>  
+  </section>      
+  <!-- End Slide --> 
+
+  <!-- Home -->
+  <section class="bg_image page-title" id="home">
+
+    <!-- main content -->
+      <div class="opacy">
+        <div class="container">
+          <div class="row">
+
+              <div class="col-md-12">
+                  <h2><%= @blog.title %></h2>
+              </div>
+
+          </div>
+        </div>
+      </div>
+    <!-- end main content -->
+
+      <!-- pattern_top -->
+      <div class="pattern_top pattern-top-light"></div>
+      <!-- end pattern_top -->
+
+  </section>
+  <!-- end Home -->
+
+  <!-- Sidebar Left -->
+  <section  class="color color-light paddings">
+
+    <div class="container">
+
+      <div class="row">
+
+        <!--Blog List-->
+        <div class="col-md-9 single-post">
+
+          <!-- Mini SLide --> 
+          <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+            <!-- <ol class="carousel-indicators">
+                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="1" class=""></li>
+                <li data-target="#carousel-example-generic" data-slide-to="2" class=""></li>
+            </ol> -->
+            <div class="carousel-inner">
+              <div class="item active">
+                <%= image_tag @blog.blog_image(:natural) %>
+              </div>
+              <!-- <div class="item">
+                <img src="/assets/blog_2.jpg">
+              </div>
+              <div class="item">
+                <img src="/assets/blog_3.jpg">
+              </div> -->
+            </div>
+                  
+          </div>
+          <!-- End Mini SLide -->
+
+          <!-- Info Post -->
+          <div class="row">
+            <div class="col-md-12 top color-dark-font">
+              <p class="top color-dark-font color-font-black">
+                <%= @blog.body %>
+              </p>
+            </div>
+            <!-- End Info Post -->
+          </div>
+
+          <!-- <h3 class="top color-dark-font color-font-black">Tags</h3>
+          <ul class="tags">
+              <li><a href="#">css3</a></li>
+              <li><a href="#">html5</a></li>
+              <li><a href="#">Best Magazines</a></li>
+              <li><a href="#">Stuff</a></li>
+              <li><a href="#">Beneficies</a></li>
+              <li><a href="#">Video</a></li>
+              <li><a href="#">Fast Support</a></li>
+              <li><a href="#">css3</a></li>
+              <li><a href="#">html5</a></li>
+              <li><a href="#">Best Magazines</a></li>
+              <li><a href="#">Stuff</a></li>
+              <li><a href="#">Beneficies</a></li>
+              <li><a href="#">Video</a></li>
+              <li><a href="#">Fast Support</a></li>
+          </ul> -->
+
+          <h2 class="top color-dark-font color-font-black">More Comments..</h2>
+
+        <!--Comments-->
+        <% if current_user %>
+        <% @blog.comments.each do |comment| %>
+          <div class="comments top">
+              <img src="/assets/avatar_small.png" alt="avatar">
+              <div class="comment_body text-overflow color-font-black">
+                <h4 class="color-dark-font color-font-black">
+                  <a href="#"><%= comment.name %></a>
+                  <span> <%= comment.created_at.to_formatted_s(:long_ordinal) %></span> 
+                  <a class="reply" href="#reply"> Reply <i class="fa fa-level-up"></i></a> 
+                  <% unless !current_user %>
+                  <!-- <a href="/blogs/<%#=@blogs.id%>/comments/<%#=comment.id%>" data-confirm="Are You Sure" data-method="get" class="label-danger btn btn-sm ">Delete</a> -->
+                    <a href="/blogs/<%=@blog.id%>/comments/<%=comment.id%>/delete" data-confirm="Are You Sure" data-method="get" class="label-danger btn btn-sm">Delete</a>
+                    <% if comment.approve == false %>
+                      <a href="/blogs/<%=@blog.id%>/comments/<%=comment.id%>/approve" class="label-danger btn btn-sm" >Approve Comment</a>
+                    <% else%>
+                      <div class="alert alert-info">
+                      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                      <i class="fa fa-info"></i> Comment Approved..!
+                    </div>
+                    <% end %>
+                  <% end %>
+                </h4>
+                <p><%= comment.message%></p> 
+              </div>
+          </div>
+          <!--Comments-->
+
+          <div class="divider_dark"></div>
+           <% end %>
+
+        <% else %>
+          <% if @blog.comments.visible.present? %>
+            <% @blog.comments.each do |comment| %>
+              <div class="comments top">
+                  <img src="/assets/avatar_small.png" alt="avatar">
+                  <div class="comment_body text-overflow color-font-black">
+                    <h4>
+                      <a href="#"><%= comment.name %></a>
+                      <span> <%= comment.created_at %></span> 
+                      <a class="reply" href="#reply"  >Reply <i class="fa fa-level-up"></i></a> 
+                      <% unless !current_user %>
+                      <!-- <a href="/blogs/<%#=@blogs.id%>/comments/<%#=comment.id%>" data-confirm="Are You Sure" data-method="get" class="label-danger btn btn-sm ">Delete</a> -->
+                        <a href="/blogs/<%=@blog.id%>/comments/<%=comment.id%>/delete" data-confirm="Are You Sure" data-method="DELETE" class="label-danger btn btn-sm">Delete</a>
+                        <% if comment.approve == false %>
+                          <a href="/blogs/<%=@blog.id%>/comments/<%=comment.id%>/approve" class="label-danger btn btn-sm" >Approve Comment</a>
+                        <% else%>
+                          <div class="alert alert-info">
+                          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                          <i class="fa fa-info"></i> Comment Approved..!
+                        </div>
+                        <% end %>
+                      <% end %>
+                    </h4>
+                    <p><%= comment.message%></p> 
+                  </div>
+              </div>
+            <!--Comments-->
+              <div class="divider_dark"></div>
+               <% end %>
+               <% else %>
+                    <div class="alert alert-info">
+                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                  <i class="fa fa-info"></i> There are no comments...!
+                </div>
+              <% end %> 
+           <% end %>
+          <!-- <div class="divider_dark"></div> -->
+
+            <div class="row top" id="reply">
+              <div class="col-md-12">
+                <h2>What's your Opinion?</h2>
+                  <!--Form Message-->
+                  <!-- <form class="form_contact" action="#"> -->
+                 <%= form_for ([@blog, @blog.comments.build]),:html => {:class=>"form_contact"} do |f|%>
+                    <div class="row">
+
+                      <div class="col-md-4">
+                        <!-- <input type="text" class="name form-control" placeholder="Full Name" required="required" name="Name"> -->
+                        <%= f.text_field :name, :class => "name form-control", :placeholder => "Full Name", :required => "required"  %>
+                      </div>
+
+                      <div class="col-md-4">
+                        <!-- <input type="email" class="email form-control" placeholder="Email" required="required" name="Email"> -->
+                        <%= f.text_field :email, :class => "email form-control", :placeholder => "Email", :required => "required" %>
+                      </div>
+
+                      <div class="col-md-4">
+                        <!-- <input type="text" class="form-control" placeholder="Site" required="required" name="Site"> -->
+                        <%= f.text_field :site, :class => "form-control", :placeholder => "Site", :required => "required" %>
+                      </div>
+
+                    </div>
+
+                      <!-- <textarea class="form-control" rows="10" placeholder="Message..." required="required" name="Message"></textarea> -->
+                      <%= f.text_area :message, :class => "form-control", :row => "10", :placeholder => "Message...", :required => "required" %>
+
+                      <div class="clearfix"></div>
+
+                      <input type="submit" value="Send Message" name="subscribe">
+
+                    <div class="result"></div>
+
+                    <% end %>
+                    <!-- </form> -->
+                  <!--Form Message-->
+              </div>
+            </div>
+            </div>
+            <!--Blog List-->
+
+            <aside class="col-md-3">
+
+                <!--Search Sidebar-->
+                <!-- <h2>Search Sidebar</h2>
+                <div class="divider_dark"></div>
+
+                <form class="navbar-form navbar-left" role="search">
+                  <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                  </div>
+                  <button type="submit" class="color btn">Submit</button>
+                </form> -->
+                <!--Search Sidebar-->
+
+                <div class="clearfix"></div>
+                <!--Recent Post-->
+                <h2 class="top">Recent Post</h2>
+                <div class="divider_dark"></div>
+                  <ul class="items-blog owl-carousel owl-theme" style="opacity: 1; display: block;">
+                    <!--ITtem-->
+                    <div class="owl-wrapper-outer">
+                      <div class="owl-wrapper" >
+                        
+                          <div class="owl-item" style="width: 263px;">
+                          <% Blog.all.order("created_at desc").limit(3).each do |blog|%>
+                            <li>
+                              <a href="<%=blog_path(blog.id)%>"><%= image_tag blog.blog_image(:thumb)%></a>
+                              <h4><a href="<%=blog_path(blog.id)%>"><%= blog.title%></a></h4>
+                              <div class="text_blog">
+                              <p class="text-overflow color-font-black"><%= blog.created_at%> -<%= blog.comments.count %></p>
+                              </div>
+                            </li>
+                          <% end %>
+                          </div>
+                        
+                      </div>
+                    </div>
+                      <!--ITtem-->
+                      <!-- <div class="owl-controls clickable">
+                        <div class="owl-pagination">
+                          <div class="owl-page active"><span class=""></span></div>
+                          <div class="owl-page"><span class=""></span></div>
+                          <div class="owl-page"><span class=""></span></div>
+                        </div>
+                      </div> -->
+
+                  </ul>
+                <!--Recent Post-->
+
+                <h2 class="top">About Us</h2>
+                <div class="divider_dark"></div>
+                <p>Launch beautiful, responsive websites faster with themes and templates for WordPress, Joomla, Drupal, Magento, Landing Pages and more.</p>
+
+                <!--Tags-->
+                <h2 class="top">Tags</h2>
+                <div class="divider_dark"></div>
+                    <ul class="tags">
+                        <li><a href="#">css3</a></li>
+                        <li><a href="#">html5</a></li>
+                        <li><a href="#">Best Magazines</a></li>
+                        <li><a href="#">Stuff</a></li>
+                        <li><a href="#">Beneficies</a></li>
+                        <li><a href="#">Video</a></li>
+                        <li><a href="#">Fast Support</a></li>
+                        <li><a href="#">css3</a></li>
+                        <li><a href="#">html5</a></li>
+                        <li><a href="#">Best Magazines</a></li>
+                        <li><a href="#">Stuff</a></li>
+                        <li><a href="#">Beneficies</a></li>
+                        <li><a href="#">Video</a></li>
+                        <li><a href="#">Fast Support</a></li>
+                    </ul>
+                <!--Tags-->
+
+                <!--Categories-->
+                <h2 class="top">Categories</h2>
+                <div class="divider_dark"></div>
+
+                <div class="row">
+                    <div class="col-sm-6 col-xs-6">
+                        <ul class="categories">
+                            <li><a href="#"><p><i class="fa fa-angle-double-right"></i> Developer (10)</p></a></li>
+                            <li><a href="#"><p><i class="fa fa-angle-double-right"></i> Design</p></a></li>
+                            <li><a href="#"><p><i class="fa fa-angle-double-right"></i> Graphics (08)</p></a></li>
+                            <li><a href="#"><p><i class="fa fa-angle-double-right"></i> Reviews</p></a></li>
+                            <li><a href="#"><p><i class="fa fa-angle-double-right"></i> Vectors (15)</p></a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 col-xs-6">
+                        <ul class="categories">
+                            <li><a href="#"><p><i class="fa fa-angle-double-right"></i> News (10)</p></a></li>
+                            <li><a href="#"><p><i class="fa fa-angle-double-right"></i> Bussiness (10)</p></a></li>
+                            <li><a href="#"><p><i class="fa fa-angle-double-right"></i> Web Design</p></a></li>
+                            <li><a href="#"><p><i class="fa fa-angle-double-right"></i> Tutorial</p></a></li>
+                            <li><a href="#"><p><i class="fa fa-angle-double-right"></i> Webs</p></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!--Categories-->
+
+            </aside>
+
+        </div>
+
+     </div>
+      
+      <!-- pattern_bottom -->
+      <div class="pattern_bottom pattern-bottom-light"></div>
+      <!-- end pattern_bottom -->
+  </section>
+  <!-- Sidebar Left -->
+
+       
+<%# end %>

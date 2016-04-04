@@ -1,0 +1,146 @@
+<!-- Contact -->
+        <section class="color contact_us paddings center" id="contact">
+
+            <!-- pattern_top -->
+            <div class="pattern_top"></div>
+            <!-- end pattern_top -->
+
+            <div class="container">
+                <div class="row">
+                    <div class="title">
+                        <h2 class="color-black wow bounceIn animated" data-wow-duration="1.5s">Contact</h2>
+                    </div>
+                </div>
+
+                <div class="divider_dark"></div>
+
+                <div class="row paddings-content wow fadeIn animated" data-wow-duration="2.0s">
+                    <div class="col-md-12">
+
+                      <p>We’re always looking for new projects to work on, if you have some please write us!</p>
+                      <h3><a href="mailto:info@domain.com"><i class="fa fa-envelope"></i> contact@domain.com</a></h3>
+
+                      <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">Send a Message</button>
+
+                    </div>
+                </div>
+
+                <div class="divider_dark"></div>
+
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        <div class="number">
+                            <p><i class="fa fa-mobile-phone"></i> +51 2526148681</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 left col-sm-12">
+                        <div class="address">
+                            <p>
+                                <i class="fa fa-map-marker"></i> 
+                                80, Street name postal code,city name <br><span>Country</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- pattern_bottom -->
+            <div class="pattern_bottom"></div>
+            <!-- end pattern_bottom -->
+
+        </section>
+        <!-- end Contact -->
+
+
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="social_icon center">
+                            <ul>
+                                <li><a href="#" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#" title="Instagram"><i class="fa fa-instagram"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        </section>
+        <!-- end Contact -->
+
+
+        <!-- Modal -->
+        <div class="modal fade left" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title center" id="myModalLabel">Send us a Message</h4>
+                    </div>
+
+                    <div class="modal-body">
+                        <!--Form Contact-->
+                        
+                        <%= form_for @contact_us, :html=>{:class=>'form-contact',:id=>"contact_us"} do |f|%>
+                            <div class="form_contact">
+                                
+                                <%= f.text_field :name, :class=>"name form-control", :placeholder => "Name", :required => "required"%>
+                                
+                                <%= f.text_field :email, :class=>"email form-control", :placeholder => "Email", :required => "required"%>
+                                
+                                <%= f.text_area :message,:class=>"form-control", :rows=> "4" , :placeholder => "Message"%>
+                            </div>
+
+                            <!-- <input type="submit" value="Send Message" name="subscribe"> -->
+                            <%= f.submit "send",:id=>"send_mail"%>
+                            <!-- <button type="submit" name="commit" value="Send" >Send</button> -->
+
+                            <div class="result"></div>
+                        
+                        <% end %>
+                        <!--Form Contact-->
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- Modal -->
+
+  </div>
+  <!--Layout Theme Options-->
+    
+<script type="text/javascript">
+$(document).ready(function() {
+
+    // process the form
+    $('#send_mail').click(function(event) {
+
+
+        // get the form data
+        // there are many ways to get this data using jQuery (you can use the class or id also)
+        var formData = $("#contact_us").serialize();
+
+        // process the form
+        $.ajax({
+            type        : 'POST', // define the type of HTTP verb we want to use (POST for our form)
+            url         : '/contacts.js', // the url where we want to POST
+            data        : formData,
+            success: function(data) {
+           if (data.success) {
+              alert("Our Customer support will contact you soon...!")
+              window.location.href="/"
+           }else{
+            alert("byeeeeee")
+           }
+           },
+        })
+
+        // stop the form from submitting the normal way and refreshing the page
+        event.preventDefault();
+    });
+
+});
+</script>

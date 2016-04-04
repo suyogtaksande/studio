@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Studio</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1,  maximum-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <!-- Your styles -->
+    <%#= stylesheet_link_tag "/assets/animate.css"%>
+    <%#= stylesheet_link_tag "/assets/awwwards.css"%>
+    <%#= stylesheet_link_tag "/assets/bootstrap-theme.min.css"%>
+    <%#= stylesheet_link_tag "/assets/bootstrap.min.css"%>
+    <%#= stylesheet_link_tag "/assets/camera.css"%>
+    <%#= stylesheet_link_tag "/assets/carousel.css"%>
+    <%#= stylesheet_link_tag "/assets/extralayers.css"%>
+    <%#= stylesheet_link_tag "/assets/flickr.css"%>
+    <%#= stylesheet_link_tag "/assets/font-awesome.css"%>
+    <%#= stylesheet_link_tag "/assets/jquery.fancybox.css"%>
+    <%#= stylesheet_link_tag "/assets/jquery.mCustomScrollbar.css"%>
+    <%#= stylesheet_link_tag "/assets/owl.theme.css"%>
+    <%#= stylesheet_link_tag "/assets/owl.transitions.css"%>
+    <%= stylesheet_link_tag "/assets/responsive-theme.css"%>
+    <%#= stylesheet_link_tag "/assets/settings.css"%>
+    <%= stylesheet_link_tag "/assets/style.css"%>
+    <%= stylesheet_link_tag "/assets/orange-light.css"%>
+    <%#= stylesheet_link_tag "/assets/contents.css"%>
+    <%#= stylesheet_link_tag "/assets/style_hover.css"%>
+    <%#= stylesheet_link_tag "/assets/style_menu.css"%>
+    <%#= stylesheet_link_tag "/assets/theme-options.css"%>
+    <%#= stylesheet_link_tag "/assets/transitions.css"%>
+    <%#= stylesheet_link_tag "/assets/video.css"%>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <!-- ======================= JQuery libs =========================== -->
+        <!-- jQuery local-->    
+        <%= javascript_include_tag "/assets/jquery.js"%>
+        <!--Lightbox--> 
+        <%= javascript_include_tag "/assets/jquery.fancybox.js"%>
+        <!--Animations-->
+        <%= javascript_include_tag "/assets/wow.js"%>
+        <!--Totop-->
+        <%= javascript_include_tag "/assets/jquery.ui.totop.js"%>
+        <!--Accorodion-->
+        <%= javascript_include_tag "/assets/accordion.js"%>
+        
+        <!--Scroll-->
+        <%= javascript_include_tag "/assets/jquery.nicescroll.js"%>
+        <%= javascript_include_tag "/assets/smooth-scroll.js"%> 
+        <%= javascript_include_tag "/assets/jquery.mCustomScrollbar.concat.min.js"%>   
+        <!-- Carrousel -->
+        <%= javascript_include_tag "/assets/carousel.js"%>  
+        <!--Theme Options-->
+        <%= javascript_include_tag "/assets/theme-options.js"%>
+        <%= javascript_include_tag "/assets/jquery.cookies.js"%>
+        
+        <!--Slide-->
+        <%= javascript_include_tag "/assets/camera.js"%>
+        <%= javascript_include_tag "/assets/jquery.easing.1.3.min.js"%>
+        
+        <!--Slide Revolution-->
+        <%= javascript_include_tag "/assets/jquery.themepunch.tools.min.js"%>
+        <%= javascript_include_tag "/assets/jquery.themepunch.revolution.js"%>
+        
+        <!-- Parallax-->
+        <%= javascript_include_tag "/assets/jquery.inview.js"%>
+        <%= javascript_include_tag "/assets/nbw-parallax.js"%>
+        <%= javascript_include_tag "/assets/parallax-func.js"%>
+        
+        <!--Bg Moving-->
+        <%= javascript_include_tag "/assets/bg-moving-func.js"%>
+        <%= javascript_include_tag "/assets/jquery.bgscroll.js"%>
+        
+        <!-- Nav-->
+        <%= javascript_include_tag "/assets/jquery.sticky.js"%>
+        
+        <!-- Bootstrap.js-->
+        <%= javascript_include_tag "/assets/bootstrap.js"%>
+        <!--fUNCTIONS-->
+        <%= javascript_include_tag "/assets/main.js"%>
+        <%= javascript_include_tag "/assets/slider-func.js"%>
+
+        <%#= javascript_include_tag "/assets/owl.carousel.js"%>
+        <%= javascript_include_tag "/assets/ckeditor.js"%>
+
+      <!-- ======================= End JQuery libs =========================== -->
+
+    <!-- Skins Theme -->
+    <!-- <link href="#" rel="stylesheet" media="screen" class="skin"> -->
+
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="img/icons/favicon.ico">
+    <link rel="apple-touch-icon" href="img/icons/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="img/icons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="img/icons/apple-touch-icon-114x114.png">  
+    
+    <!-- Skins Changer-->
+    <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#toTop").UItoTop()
+        });
+    </script>
+
+    <!-- <script src="js/modernizr/modernizr.js"></script> -->
+  <title>AppStudio</title>
+  <%#= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%#= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= render 'shared/header'%>
+<%= yield %>
+<%= render 'shared/footer'%>
+</body>
+</html>

@@ -1,0 +1,651 @@
+  <!--Layout Theme Options-->
+  <div id="layout">
+
+        <%#= render 'shared/header'%>
+        
+        <!-- Slide -->   
+        <section id="slide">   
+            <div id="slider" class="camera_wrap">
+              <!-- Item Slide style_one--> 
+              <div  data-src="/assets/bg_slide1.jpg"></div>
+              <!-- End Item Slide style_one -->  
+
+              <!-- Item Slide style_one--> 
+              <div  data-src="/assets/bg_slide2.jpg"></div>
+              <!-- End Item Slide style_one -->  
+            </div>  
+        </section>      
+        <!-- End Slide --> 
+
+        <!-- Home -->
+        <section class="bg_image center home" id="home">
+
+          <!-- pattern_top -->
+          <div class="pattern_top"></div>
+          <!-- end pattern_top -->
+
+          <!-- main content -->
+            <div class="opacy">
+              <div class="container">
+                <div class="row paddings-content home-main">
+
+                    <h2 class="wow animated fadeInDown" data-wow-duration="1s">We are</h2>
+                    <h1 class="wow animated zoomInDown" data-wow-duration="2s">STUDIO</h1>
+                    <div class="divider_light"></div>
+                    <p class="wow animated fadeInUp" data-wow-duration="2.5s">Envato is an ecosystem of sites to help you get creative. From our world-leading digital marketplaces where you can buy images, templates, project files and creative assets.</p>
+                    <p class="wow animated fadeInUp" data-wow-duration="2.5s">To our education network of tutorials and courses where you can learn new skills and crafts, our sites and services help millions of people around the world.</p>
+                    <a href="#">
+                        <img src="/assets/logo-big.png" alt="Logo" class="logo_big top">
+                    </a>
+
+                </div>
+              </div>
+            </div>
+          <!-- end main content -->
+
+          <!-- pattern_top -->
+          <div class="pattern_bottom"></div>
+          <!-- end pattern_top -->
+
+        </section>
+        <!-- end Home -->
+
+        <!-- Work -->
+        <section class="color work paddings" id="work">
+
+            <!-- pattern_top -->
+            <div class="pattern_top"></div>
+            <!-- end pattern_top -->
+
+            <div class="container">
+                <div class="row title">
+                        <div class="col-md-6">
+                            <h2 class="color-black wow bounceInLeft animated" data-wow-duration="2.5s">Works</h2>
+                        </div>
+                        <div class="col-md-6">
+                            <p class="left wow bounceInRight animated" data-wow-duration="2.5s">Envato Market is home to thousands of talented designers, developers and creators of all kinds, who sell a huge range of digital goods and assets. There’s everything from photographs to project files, sound effects to video templates.</p>
+                    </div>
+                </div>
+
+                <div class="divider_dark"></div>
+        
+                <!--Carousel-->
+                <div class="row paddings-content">
+                    <div class="col-md-12">
+                        <ul class="ch-grid center">
+                          <% @portfolios.each do |portfolio| %>
+                          <!--Item-->
+                          <li>
+                            <div class="ch-item " style="background-image: url(<%=portfolio.portfolio_image(:large) %>);}">
+                            <%#=portfolio.image %>
+                              <div class="ch-info center">
+                                <h2><%= portfolio.title %></h2>
+                                <div class="divisor"></div>
+                                <p><%= portfolio.description %></p>
+                                <% url = portfolio.url.split("watch?v=")%>
+                                <% embed_url = url[0] + "embed/" + url[1] %>
+                                <a class="iframe_video" title="" href="<%= embed_url %>?autoplay=1">View</a>
+                              </div>
+                            </div>
+                          </li>
+                          <!--Item-->
+                          <% end %>
+                        </ul>
+                    </div>
+                </div>
+                <!--Carousel-->
+
+                <div class="divider_dark"></div>
+
+                <!-- social -->
+                <div class="social">
+                   <div class="row">
+                      <div class="col-md-6 col-sm-6">
+                        <h3 class="wow bounceInLeft animated" data-wow-duration="2.5s"><span>Want to see more? </span> follow us on:</h3>
+                      </div>
+                      <div class="col-md-6 right col-sm-6">
+                        <div class="social_icon wow bounceInRight animated" data-wow-duration="2.5s">
+                            <a href="#" class="tooltip_hover" title="Dribble Tooltip" target="_blank"><i class="fa fa-dribbble"></i></a>
+                            <a href="#" class="tooltip_hover" title="Linkedin Tooltip" target="_blank"><i class="fa fa-linkedin"></i></a>
+                            <a href="#" class="tooltip_hover" title="Flickr Tooltip" target="_blank"><i class="fa fa-flickr"></i></a>
+                          </div>
+                      </div>
+                    </div>
+                </div>
+                <!-- end social -->
+
+            </div>
+
+            <!-- pattern_bottom -->
+            <div class="pattern_bottom"></div>
+            <!-- end pattern_bottom -->
+
+        </section>
+        <!-- end Work -->
+
+        <!-- About -->
+        <section class="bg_image center" id="about">
+        
+            <!-- pattern_top -->
+            <div class="pattern_top"></div>
+            <!-- end pattern_top -->
+
+            <!-- content -->
+            <div class="opacy">
+                <div class="container">
+
+                    <div class="row title wow bounceIn animated" data-wow-duration="2.5s">
+
+                        <div class="col-md-7 col-sm-12">
+                            <p class="right">Envato Market is home to thousands of talented designers, developers and creators of all kinds, who sell a huge range of digital goods and assets.</p>
+                        </div>
+
+                        <div class="col-md-5 col-sm-12">
+                            <h2>About</h2>
+                        </div>
+                    </div>
+
+                    <div class="divider_light"></div>
+
+                    <div class="row paddings-content">
+                       
+                        <div class="col-md-6 col-sm-6">
+
+                            <!--About Team-->
+                            <div class="about wow fadeInRight animated" data-wow-duration="2.5s">
+                                <img src="/assets/about_02.jpg" alt="">
+
+                                <div class="about_text">
+                                    <h2>Jhon David</h2>
+                                    <p>Co-founder, Director,<br>Frontend.</p>
+                                    <div class="social_icon">
+                                        <a href="#" class="tooltip_hover" title="Twiiter Tooltip" target="_blank"><i class="fa fa-twitter"></i></a>
+                                        <a href="#" class="tooltip_hover" title="Facebook Tooltip" target="_blank"><i class="fa fa-facebook"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--About Team-->
+
+                        </div>
+
+                        <div class="col-md-6 col-sm-6">
+
+                            <!--About Team-->
+                            <div class="about wow fadeInLeft animated" data-wow-duration="2.5s">
+                                <img src="/assets/about_01.jpg" alt="">
+
+                                <div class="about_text">
+                                    <h2>Jeniffer Bula</h2>
+                                    <p>Co-founder, Subdirector,<br>Backend.</p>
+                                    <div class="social_icon">
+                                        <a href="#" class="tooltip_hover" title="Twiiter Tooltip" target="_blank"><i class="fa fa-twitter"></i></a>
+                                        <a href="#" class="tooltip_hover" title="Facebook Tooltip" target="_blank"><i class="fa fa-facebook"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--About Team-->
+
+                        </div>
+
+                    </div>
+
+                    <div class="divider_light display-none"></div>
+
+                    <!-- specialize -->
+                    <div class="specialize">
+                       <div class="row">
+
+                              <div class="col-md-2 col-sm-12"><h3>we specialize in:</h3></div>
+
+                              <!-- icon 01 -->
+                              <div class="col-md-2 col-sm-2">
+                                <a href="#" class="tooltip_hover" title="" data-original-title="Details Service"><i class="fa fa-desktop"></i></a>
+                                <p>Interactive Design</p>
+                              </div>
+                              <!-- end icon 01 -->
+
+                              <!-- icon 02 -->
+                              <div class="col-md-2 col-sm-2">
+                                <a href="#" class="tooltip_hover" title="" data-original-title="Details Service"><i class="fa fa-pencil"></i></a>
+                                <p>Illustration</p>
+                              </div>
+                              <!-- end icon 02 -->
+
+                              <!-- icon 03 -->
+                              <div class="col-md-2 col-sm-2">
+                                <a href="#" class="tooltip_hover" title="" data-original-title="Details Service"><i class="fa fa-mobile"></i></a>
+                                <p>Apps Design</p>
+                              </div>
+                              <!-- end icon 03 -->
+
+                              <!-- icon 04 -->
+                              <div class="col-md-2 col-sm-2">
+                                <a href="#" class="tooltip_hover" title="" data-original-title="Details Service"><i class="fa fa-user"></i></a>
+                                <p>UI/UX</p>
+                              </div>
+                              <!-- end icon 04 -->
+
+                              <!-- icon 05 -->
+                              <div class="col-md-2 col-sm-2">
+                                <a href="#" class="tooltip_hover" title="" data-original-title="Details Service"><i class="fa fa-chain-broken"></i></a>
+                                <p>Code</p>
+                              </div>
+                              <!-- end icon 05 -->
+
+                       </div>
+                    </div>
+                    <!-- end specialize -->
+
+                </div>
+            </div>
+            <!-- end content -->
+
+            <!-- pattern_bottom -->
+            <div class="pattern_bottom"></div>
+            <!-- end pattern_bottom -->
+
+        </section>
+        <!-- end About -->
+
+        <!-- Blog -->
+        <section class="color paddings" id="blog">
+
+            <!-- pattern_top -->
+            <div class="pattern_top"></div>
+            <!-- end pattern_top -->
+
+            <div class="container">
+            
+                <div class="row title">
+                    <div class="col-md-4">
+                        <h2 class="color-black wow bounceInLeft animated" data-wow-duration="1.2s">Blog</h2>
+                    </div>
+                    <div class="col-md-8">
+                        <p class="left wow bounceInRight animated" data-wow-duration="1.2s">You’ll find out more about the technical choices we make, including the ones that don’t turn out as we hope. We’ll describe our approach to solving problems rather than simply adding features. Along the way, you will meet the team members and find out what makes them tick.</p>
+                    </div>
+                </div>
+  
+                <div class="divider_dark"></div>
+    
+                <!--Content Blog-->
+                <div class="row paddings-content">
+                  <% Blog.all.order("created_at desc").limit(4).each do |blog|%>
+                    <div class="col-md-6 col-sm-12">
+
+                        <!--Item Blog-->
+                        
+                        <div class="<%= cycle('item_blog top-cero wow flipInX animated', 'item_blog wow flipInX animated','item_blog top wow flipInX animated','item_blog top wow flipInX animated') -%>" data-wow-duration="1.8s">
+                            <!--img_blog-->
+                              <div class="img_blog">
+                                <%= image_tag blog.blog_image %>
+                                <!--hover_img_blog-->
+                                 <div class="hover_img_blog center">
+                                    <a href="single-post.html">
+                                        <i class="fa fa-plus"></i>
+                                    </a>
+                                 </div>
+                                 <!--End hover_img_blog-->
+                              </div>   
+                            <!-- End img_blog-->  
+                            
+                            <!-- info blog-->  
+                            <div class="info_blog">
+                              <!--date_blog-->
+                              <div class="date_blog">
+                                <h2><a href="<%= blog_path(blog.id)%>"><%= blog.title %></a></h2>
+                                  <ul>
+                                    <li><i class="fa fa-user color-black"></i><a href="#"><%= blog.author %></a></li>
+                                    <li><i class="fa fa-comments color-black"></i><a href="#"><%= blog.comments.count %></a></li>
+                                    <li><i class="fa fa-calendar color-black"></i> <%= blog.created_at.strftime("%A, %b %d") %></li>
+                                  </ul>
+                              </div>
+                              <!--End date_blog-->
+
+                                <!--text_blog-->
+                                <div class="text_blog text-overflow">
+                                  <a href="#"><p><%= blog.body %></p></a>
+                                </div>
+                                <!--End text_blog-->
+                            </div>
+                            <!-- End Info blog-->    
+
+                        </div>
+                        <!--End Item Blog-->
+                        
+                      
+                    </div>
+                  <%end%>
+                    
+
+            </div>
+            <!-- end container -->
+
+            <!-- pattern_bottom -->
+            <div class="pattern_bottom"></div>
+            <!-- end pattern_bottom -->
+        </section>
+        <!-- end Blog -->
+
+        <!-- Services -->
+        <section class="bg_image" id="services">
+            
+            <!-- pattern_top -->
+            <div class="pattern_top"></div>
+            <!-- end pattern_top -->
+
+            <!-- content -->
+            <div class="opacy">
+
+                <div class="container">
+
+                    <!-- Services-->
+                    <div class="services">
+
+                        <div class="row">
+                            <div class="title center">
+                                <h2 class="wow fadeInLeft animated" data-wow-duration="1.5s">Services</h2>
+                            </div>
+                        </div>
+
+                        <div class="divider_light"></div>
+
+                        <div class="paddings-content wow fadeIn animated" data-wow-duration="2.0s">
+                            <!--testimonials-->
+                            <ul class="testimonials">
+
+                              <!--Item-->
+                              <li>
+                                <div class="item_testimonial">
+                                  <div class="img_testimonial">
+                                    <img src="/assets/testimonials_01.png" alt="">
+                                  </div>
+                                  <div class="about_testimonial">
+                                    <span>@jekamabu</span>
+                                    <p>I advice everyone, doesn't matter which theme you buy, you can be sure that you will get a very good support whenever you need.</p>
+                                  </div>
+                                </div>
+                              </li>
+                              <!--Item-->
+
+                               <!--Item-->
+                              <li>
+                                <div class="item_testimonial">
+                                  <div class="img_testimonial">
+                                    <img src="/assets/testimonials_02.png" alt="">
+                                  </div>
+                                  <div class="about_testimonial">
+                                    <span>@jekamabu</span>
+                                    <p>I advice everyone, doesn't matter which theme you buy, you can be sure that you will get a very good support whenever you need.</p>
+                                  </div>
+                                </div>
+                              </li>
+                              <!--Item-->
+
+                               <!--Item-->
+                              <li>
+                                <div class="item_testimonial">
+                                  <div class="img_testimonial">
+                                    <img src="/assets/testimonials_03.png" alt="">
+                                  </div>
+                                  <div class="about_testimonial">
+                                    <span>@jekamabu</span>
+                                    <p>I advice everyone, doesn't matter which theme you buy, you can be sure that you will get a very good support whenever you need.</p>
+                                  </div>
+                                </div>
+                              </li>
+                              <!--Item-->
+                            </ul>
+                            <!--End testimonials-->
+
+                            <!--Services Info Boxes-->
+                            <div class="services_info">
+
+                                <div class="border_right"></div>
+
+                                <div class="row border_services">
+                                    <!--item_services-->
+                                    <div class="col-md-6 item_services left col-sm-6 col-xs-12">
+                                       <h2>01</h2>
+                                       <h3>Smart, Curious, Hands on.</h3>
+                                       <p>Lance Snider working in the Bonneville Salt Flats, Utah</p>
+
+                                        <!--Hover Item-->
+                                        <div class="info_hover hover-zoom">
+                                            <h3><i class="fa fa-cogs"></i> Smart, Curious, Hands on.</h3>
+
+                                            <div class="info_hover_content">
+                                                <p>Those are the qualities we look for in our team. Other words that might describe us, and hopefully you too, include: friendly, enthusiastic, inventive, persistent, funny (some more than others), creative, geeky and proficient. We also wanted to say profligate because it sounds good, but we looked it up and it really isn’t us.</p>
+                                                <p>Envato is headquartered in Melbourne, Australia, but a sizable number of Envato staff work remotely and autonomously from home offices, coffee shops, or anywhere with an internet connection. We have team members in Canada, USA, UK, Malaysia, Romania, Latvia, France, Spain, Italy, Germany, Sweden, The Netherlands, India, and Belgium; from urban centres to the remotest of spots.</p>
+                                            </div>
+
+                                        </div>
+                                       <!--Hover Item-->
+                                    </div>
+                                    <!--End item_services-->
+
+                                    <!--item_services-->
+                                    <div class="col-md-6 item_services left col-sm-6 col-xs-12">
+                                       <h2>02</h2>
+                                       <h3>When We Say Remote We Mean Remote!</h3>
+                                       <p>Photobombers rove the office looking for victims</p>
+
+                                       <!--Hover Item-->
+                                        <div class="info_hover hover-zoom">
+                                            <h3><i class="fa fa-bell-o"></i> When We Say Remote We Mean Remote!</h3>
+                                            <div class="info_hover_content">
+                                                <p>Working at Envato is about being a part of our internal community. We all work hard to make Envato both a successful company, and a fun, friendly and happy workplace. From catered lunchtime talks, a communal garden, online letterpress tournaments, a lively Yammer channel and the odd ‘party pants’ day in the office, working at Envato is about doing a great job and having a great place to do it at.</p>
+                                                <ul>
+                                                    <li><p>The community is our backbone and we always try to make decisions with their best interests in mind. It is critical to us that we have a win-win approach to work, and that we get involved with and talk to the community.</p></li>
+                                                </ul>
+                                            </div>
+                                       </div>
+                                       <!--Hover Item-->
+                                      <!--End item_services-->
+                                    </div>
+                                </div>
+
+                                <div class="row border_services">
+
+                                    <!--item_services-->
+                                    <div class="col-md-6 item_services left col-sm-6 col-xs-12">
+                                       <h2>03</h2>
+                                       <h3>A Fun, Friendly HQ</h3>
+                                       <p>Ext to our well worn, and slightly wonky pool table.</p>
+
+                                       <!--Hover Item-->
+                                       <div class="info_hover hover-zoom">
+                                            <h3><i class="icon-bell"></i> A Fun, Friendly HQ</h3>
+
+                                            <div class="info_hover_content">
+                                                <p>When you work in front of a screen all day, it’s good to get up and about. That’s why Envato HQ is home to a slightly off-centre pool table, a retro arcade table, a massage chair and a culture of stand-up meetings, bean bag chats and the occasional developer dressed in a giant box pretending to be a robot. You also stand a good chance of getting photo bombed.</p>
+                                                <ul>
+                                                    <li><p>The community is our backbone and we always try to make decisions with their best interests in mind. It is critical to us that we have a win-win approach to work, and that we get involved with and talk to the community.</p></li>
+                                                    <li><p>Everyone deserves an equal chance and a fair opportunity. At work, on our sites, and in life we strive to be fair and consistent in everything we do.</p></li>
+                                                </ul>
+                                            </div>
+                                       </div>
+                                       <!--Hover Item-->
+                                    </div>
+                                    <!--End item_services-->
+
+                                    <!--item_services-->
+                                    <div class="col-md-6 item_services left col-sm-6 col-xs-12">
+                                       <h2>04</h2>
+                                       <h3>A Community at Work.</h3>
+                                       <p>Justin French UX / Product Manager</p>
+
+                                       <!--Hover Item-->
+                                        <div class="info_hover hover-zoom">
+                                            <h3><i class="fa fa-money"></i> A Community at Work.</h3>
+
+                                            <div class="info_hover_content">
+                                                <p>Working at Envato is about being a part of our internal community. We all work hard to make Envato both a successful company, and a fun, friendly and happy workplace. From catered lunchtime talks, a communal garden, online letterpress tournaments, a lively Yammer channel and the odd ‘party pants’ day in the office, working at Envato is about doing a great job and having a great place to do it at.</p>
+                                            </div>
+                                        </div>
+                                       <!--Hover Item-->
+
+
+                                    </div>
+                                    <!--End item_services-->
+                                </div>
+
+                            </div>
+                            <!--Services Info Boxes-->
+                        </div>
+                    </div>
+                    <!--Services-->
+                </div>
+
+             </div>
+            <!-- end content -->
+        
+            <!-- pattern_bottom -->
+            <div class="pattern_bottom"></div>
+            <!-- end pattern_bottom -->
+
+        </section>
+        <!-- end Services -->
+
+        <!-- Partners -->
+        <section class="color paddings">
+
+            <!-- pattern_top -->
+            <div class="pattern_top"></div>
+            <!-- end pattern_top -->
+
+            <div class="container">
+
+                    <div class="row title">
+                        <div class="col-md-8">
+                            <h2 class="color-black wow bounceInLeft animated" data-wow-duration="2.5s">Partners</h2>
+                        </div>
+                        <div class="col-md-4">
+                            <p class="left wow bounceInRight animated" data-wow-duration="2.5s">Our relationships are supported by a supply chain of socially responsible, ethical companies.</p>
+                        </div>
+                    </div>
+
+                    <div class="divider_dark"></div>
+    
+                    <!--Content Blog-->
+                    <div class="paddings-content">
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <!--Partners-->
+                                <ul class="partners">
+
+                                    <li><a href="#" target="_blank"><img src="/assets/partners_01.png" alt=""></a></li>
+
+                                    <li><a href="#" target="_blank"><img src="/assets/partners_02.jpg" alt=""></a></li>
+
+                                    <li><a href="#" target="_blank"><img src="/assets/partners_03.jpg" alt=""></a></li>
+
+                                    <li><a href="#" target="_blank"><img src="/assets/partners_01.png" alt=""></a></li>
+
+                                    <li><a href="#" target="_blank"><img src="/assets/partners_02.jpg" alt=""></a></li>
+
+                                    <li><a href="#" target="_blank"><img src="/assets/partners_03.jpg" alt=""></a></li>
+                                </ul>
+                                <!--Partners-->
+
+                            </div>
+                        </div>
+
+                        <div class="divider_dark"></div>
+
+                        <!-- specialize -->
+                        <div class="specialize center">
+                           <div class="row">
+
+                                  <div class="col-md-2 col-sm-12"><h3>we specialize in:</h3></div>
+
+                                  <!-- icon 01 -->
+                                  <div class="col-md-2 col-sm-2">
+                                    <a href="#" class="tooltip_hover color-font-black" title="" data-original-title="Details Service"><i class="fa fa-desktop"></i></a>
+                                    <p>Interactive Design</p>
+                                  </div>
+                                  <!-- end icon 01 -->
+
+                                  <!-- icon 02 -->
+                                  <div class="col-md-2 col-sm-2">
+                                    <a href="#" class="tooltip_hover" title="" data-original-title="Details Service"><i class="fa fa-pencil"></i></a>
+                                    <p>Illustration</p>
+                                  </div>
+                                  <!-- end icon 02 -->
+
+                                  <!-- icon 03 -->
+                                  <div class="col-md-2 col-sm-2">
+                                    <a href="#" class="tooltip_hover" title="" data-original-title="Details Service"><i class="fa fa-mobile"></i></a>
+                                    <p>Apps Design</p>
+                                  </div>
+                                  <!-- end icon 03 -->
+
+                                  <!-- icon 04 -->
+                                  <div class="col-md-2 col-sm-2">
+                                    <a href="#" class="tooltip_hover" title="" data-original-title="Details Service"><i class="fa fa-user"></i></a>
+                                    <p>UI/UX</p>
+                                  </div>
+                                  <!-- end icon 04 -->
+
+                                  <!-- icon 05 -->
+                                  <div class="col-md-2 col-sm-2">
+                                    <a href="#" class="tooltip_hover" title="" data-original-title="Details Service"><i class="fa fa-chain-broken"></i></a>
+                                    <p>Code</p>
+                                  </div>
+                                  <!-- end icon 05 -->
+
+                           </div>
+                        </div>
+                        <!-- end specialize -->
+
+                    </div>
+
+            </div>
+
+          <!-- pattern_top -->
+          <div class="pattern_bottom"></div>
+          <!-- end pattern_top -->
+
+        </section>
+        <!-- Partners -->
+
+        <!-- Video Example -->
+        <section class="bg_image play-video center">
+            
+            <!-- pattern_top -->
+            <div class="pattern_top"></div>
+            <!-- end pattern_top -->
+
+            <!-- content -->
+            <div class="opacy">
+
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-md-12">
+
+                            <div class="wow bounceIn animated" data-wow-duration="1.5s">                          
+                                <h2>Play Video</h2>
+                                <a class="iframe_video" title="" href="http://www.youtube.com/embed/2f2n1bW7vZ0?autoplay=1">
+                                    <i class="fa fa-play-circle-o"></i>
+                                </a>
+                                <h2>Learn More</h2>
+                            </div>
+                           
+
+                        </div>
+
+                    </div>
+                </div> 
+
+             </div>
+            <!-- end content -->
+        
+            <!-- pattern_bottom -->
+            <div class="pattern_bottom"></div>
+            <!-- end pattern_bottom -->
+
+        </section>
+        <!-- end Video Example -->
+
+        

@@ -1,0 +1,200 @@
+/* ---------------------------------------------------------------------- */
+/*	1024 Version
+/* ---------------------------------------------------------------------- */
+@media handheld, only screen and (max-width: 1024px) {
+    .container{width: auto;}
+    .ch-info{
+        padding-top: 0;
+        top: 0;
+    }
+    .ch-grid li {
+        width: 30rem;
+        height: 30rem;
+    }
+}
+
+/* ---------------------------------------------------------------------- */
+/*	Mobile Version
+/* ---------------------------------------------------------------------- */
+@media handheld, only screen and (max-width: 980px){
+    .specialize ul li{
+      	margin-bottom: 20px;
+     }
+    .item_testimonial{
+        width: 100%;
+    }
+  	.item_services {
+		  padding: 7rem 4rem 10rem 5rem;
+  	}
+    .title,
+    .contact_us .left,
+    .title .left,
+    .title .right{
+      text-align: center;
+    }
+    .contact_us .number{
+      margin-top: 20px;
+    }
+}
+
+
+/* ---------------------------------------------------------------------- */
+/*	768px Version
+/* ---------------------------------------------------------------------- */
+@media handheld, only screen and (max-width: 768px){
+	  .home-main,
+    .contact-zone{
+        width: 95%;
+    }
+    .home-main h1{
+        letter-spacing: 0;
+    }
+    
+}
+
+/* ---------------------------------------------------------------------- */
+/*	767px Version
+/* ---------------------------------------------------------------------- */
+@media handheld, only screen and (max-width: 767px){
+	.img_blog{
+		float: none;
+    	margin: 0 auto;
+		margin-top: 30px;
+		margin-bottom: 25px;
+    }
+    .item_blog{
+        text-align: center;
+    }
+    .border_right{
+        display: none;
+    }
+    .info_hover{
+    		width: 85%;
+        left: auto;
+        height: 36.5rem;
+    }
+}
+
+
+/* ---------------------------------------------------------------------- */
+/*	736px Version
+/* ---------------------------------------------------------------------- */
+@media handheld, only screen and (max-width: 736px) {
+    html {
+    	font-size: 55.5%;
+    }
+  	.title-section h2, .title-section-center h2 {
+        font-size: 10.0rem;
+        line-height: 11.0rem;
+    }
+    .title h2{
+      font-size: 11.1rem;
+      line-height: 121.1rem;
+    }
+}
+
+
+/* ---------------------------------------------------------------------- */
+/*	568px Version
+/* ---------------------------------------------------------------------- */
+@media handheld, only screen and (max-width: 568px) {
+	.home-main h1{
+       	font-size: 12rem;
+		line-height: 13rem;
+    }
+    .about_testimonial{
+    	top: 0;
+    }
+  	.contact_us .email-text p {
+		  font-size: 3.3rem;
+    }
+}
+
+
+/* ---------------------------------------------------------------------- */
+/*	480px Version
+/* ---------------------------------------------------------------------- */
+@media handheld, only screen and (max-width: 480px) {
+	.specialize ul li{
+		width: 230px;
+    }
+    .social,
+  	.social .left,
+  	.social .right{
+		text-align: center;
+    }
+  	.social_icon{
+		margin-top: 20px;
+    }
+  	.info_hover{
+        width: 90%;
+        left: 27px;
+    }
+  	.item_services{
+  		padding: 7rem 4rem 10rem 2.5rem;
+  	}
+    .title h2 {
+      font-size: 9.1rem;
+      line-height: 10.1rem;
+    }
+}
+
+
+/* ---------------------------------------------------------------------- */
+/*	414px Version
+/* ---------------------------------------------------------------------- */
+@media handheld, only screen and (max-width: 414px) {
+     html {
+        font-size: 53%;
+     }
+  	 .title h2, .title-section h2 {
+  		font-size: 8rem;
+    	line-height: 9rem;
+     }
+     .img_testimonial{
+        float: none;
+        text-align: center;
+     }
+     .about_testimonial{
+        margin-left: 0;
+        margin-top: 10px;
+     }
+  
+}
+
+/* ---------------------------------------------------------------------- */
+/*	384px Version
+/* ---------------------------------------------------------------------- */
+@media handheld, only screen and (max-width: 384px) {
+  	 .img_testimonial{
+		float: none;
+  	 }
+     .img_testimonial img{
+		margin: 0 auto;
+     }
+     .about_testimonial{
+		margin-left:0;
+     }
+     .info_hover{
+		left: 20px;
+     }
+	
+}
+
+/* ---------------------------------------------------------------------- */
+/*	320px Version
+/* ---------------------------------------------------------------------- */
+@media handheld, only screen and (max-width: 320px) {
+  	 .home-main h1 {
+      	font-size: 8rem;
+      	line-height: 9rem;
+     }
+     .title-section h2, .title-section-center h2 {
+		font-size: 7rem;
+		line-height: 8rem;
+     }
+  	 .contact_us .email-text p {
+        font-size: 2.3rem;
+     }
+	
+}

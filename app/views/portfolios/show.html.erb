@@ -1,0 +1,39 @@
+
+<div class="container">
+  	<div class="row" style="margin-top: 85px;">
+	  	<h4 class="modal-title center">Details of Portfolio</h4>
+	  	<div class="col-md-3"></div>
+	  	<div class="col-md-6 divider_dark divider-dark-color"></div>
+	</div>
+    <div class="row">
+    <div class="col-md-3"></div>
+
+	      <div class="col-md-6 color-dark-font color-font-black">
+			<div class="form-group color-dark-font color-font-black">
+				<label for="title">Title:</label>
+				<%= @portfolio.title %>
+			</div>
+			<div class="form-group color-dark-font color-font-black">
+				<label for="description">Details:</label>
+				<%= @portfolio.description %>
+			</div>
+			<div class="form-group color-dark-font color-font-black">
+				<label for="url">Youtube Url:</label>
+				<%= @portfolio.url %>
+			</div>
+			<div class="form-group color-dark-font color-font-black">
+				<label for="image">Image:</label>
+				<%=image_tag @portfolio.portfolio_image(:medium) %>
+			</div>
+			<div class="form-group color-dark-font color-font-black">
+				<%=link_to "Back" , portfolios_path , :class => "label-success btn btn-md" %>
+			</div>
+		  </div>
+	</div>
+	<div class="row">
+		<div class="col-md-3"></div>
+	    <div class="col-md-6 divider_dark divider-dark-color"></div>
+	</div>
+</div>
+
+</div>

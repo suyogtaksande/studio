@@ -1,0 +1,237 @@
+<% if current_user %>
+<div class="container">
+  <div class="row" style="margin-top: 85px;">
+    <div class="divider_dark divider-dark-color"></div>
+    <div class="row">
+      <div class="col-md-12">
+        <%= link_to 'New', new_blog_path , :class => "label-success btn btn-md" , :style => "float: right;" %>
+      </div>
+    </div>
+    <div class="col-md-12">
+    
+      <table class="table table-hover">
+        <thead class="table" >
+          <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Body</th>
+            <th>Image</th>
+            <th>Show</th>
+            <th>Edit</th>
+            <th>Destroy</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @blogs.each do |blog| %>
+            <tr>
+              <td><%= blog.title %></td>
+              <td><%= blog.author %></td>
+              <td><%= blog.body %></td>
+              <td><%= image_tag blog.blog_image(:thumb) %></td>
+              <td><%= link_to 'Show', blog_path(blog), :class => "label-info btn btn-sm"%>
+              </td>
+              <td><%= link_to 'Edit', edit_blog_path(blog), :class => "color btn btn-sm"%></td>
+              <td><a href="/blogs/<%=blog.id%>/delete" data-confirm="Are You Sure" data-method="get" class="label-danger btn btn-sm ">Delete</a>
+              <%#= link_to 'Destroy', portfolio, 'data-method' => :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %> 
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="divider_dark divider-dark-color"></div>
+  </div>
+  <!--Pagination-->
+  <div class="row top center">
+    <div class="col-md-12">
+      <ul class="pagination">
+        <%= will_paginate @blogs,:class=>"divider-dark-color"%>
+      </ul>
+    </div>
+  </div>
+  <!--Pagination-->
+</div>
+
+
+<% else %>
+
+        <!-- Slide -->   
+        <section id="slide">   
+            <div id="slider" class="camera_wrap">
+              <!-- Item Slide style_one--> 
+              <div  data-src="img/slide/slides/1.jpg"></div>
+              <!-- End Item Slide style_one -->  
+
+              <!-- Item Slide style_one--> 
+              <div  data-src="img/slide/slides/2.jpg"></div>
+              <!-- End Item Slide style_one -->  
+            </div>  
+        </section>      
+        <!-- End Slide --> 
+
+        <!-- Home -->
+        <section class="bg_image page-title" id="home">
+          <!-- main content -->
+            <div class="opacy">
+              <div class="container">
+                <div class="row">
+
+                    <div class="col-md-12">
+                        <h2>Blogs</h2>
+                    </div>
+
+                </div>
+              </div>
+            </div>
+          <!-- end main content -->
+
+            <!-- pattern_top -->
+            <div class="pattern_top pattern-top-light"></div>
+            <!-- end pattern_top -->
+
+        </section>
+        <!-- end Home -->
+
+        <!-- Sidebar Left -->
+        <section class="color color-light paddings">
+
+            <div class="container">
+
+                <div class="row">
+
+                    <!--Blog List-->
+                    <div class="col-md-12">
+
+                      <% @blogs.each do |blog| %>
+                        <!--Item-->
+                        <div class="row">
+                            <div class="col-md-12">
+                                <!--Item Blog-->
+                                <div class="item_blog top-cero wow flipInX animated" data-wow-duration="2.8s">
+                                    <!--img_blog-->
+                                      <div class="img_blog">
+                                        <%= image_tag blog.blog_image(:natural) %>
+                                        <!--hover_img_blog-->
+                                         <div class="hover_img_blog center">
+                                            <a href="single-post.html">
+                                                <i class="fa fa-plus"></i>
+                                            </a>
+                                         </div>
+                                         <!--End hover_img_blog-->
+                                      </div>   
+                                    <!-- End img_blog-->  
+                                    
+                                    <!-- info blog-->  
+                                    <div class="info_blog">
+                                      <!--date_blog-->
+                                      <div class="date_blog">
+                                        <h2><a href="<%= blog_path(blog)%>"><%= blog.title %></a></h2>
+                                          <ul>
+                                            <li><i class="fa fa-user color-black"></i><a href="#" class="color-font-black" > <%= blog.author %> </a></li>
+                                            <li><i class="fa fa-comments color-black"></i><a href="" class="color-font-black" >
+                                              <% if blog.comments.count == 0 || blog.comments.count == 1 %>
+                                                <%= blog.comments.count %> Comment
+                                              <% else %>
+                                                <%= blog.comments.count %> Comments
+                                              <% end %>
+                                              </a></li>
+                                            <li class="color-font-black" ><i class="fa fa-calendar color-black"></i> <%= blog.created_at.strftime("%A, %b %d") %> </li>
+                                          </ul>
+                                      </div>
+                                      <!--End date_blog-->
+
+                                        <!--text_blog-->
+                                        <div class="text_blog text-overflow">
+                                          <a href="#" class="color-font-black"><p><%= blog.body %></p></a>
+                                        </div>
+                                        <!--End text_blog-->
+                                    </div>
+                                    <!-- End Info blog-->    
+
+                                </div>
+                                <!--End Item Blog-->
+                            </div>
+                        </div>
+                        <!--Item-->
+                      <% end %>
+                      
+
+                        <!--Pagination-->
+                        <div class="row top center">
+                            <div class="col-md-12">
+                                <ul class="pagination">
+                                    <%= will_paginate @blogs,:class=>"divider-dark-color"%>
+                                </ul>
+                            </div>
+                        </div>
+                        <!--Pagination-->
+
+                    </div>
+                    <!--Blog List-->
+
+
+                </div>
+
+             </div>
+            
+            <!-- pattern_bottom -->
+            <div class="pattern_bottom pattern-bottom-light"></div>
+            <!-- end pattern_bottom -->
+        </section>
+        <!-- Sidebar Left -->
+
+        <!-- Contact -->
+        <section class="color contact_us paddings center" id="contact">
+
+            <!-- pattern_top -->
+            <div class="pattern_top"></div>
+            <!-- end pattern_top -->
+
+            <div class="container">
+                <div class="row">
+                    <div class="title">
+                        <h2 class="color-black wow bounceIn animated" data-wow-duration="1.5s">Contact</h2>
+                    </div>
+                </div>
+
+                <div class="divider_dark"></div>
+
+                <div class="row paddings-content wow fadeIn animated" data-wow-duration="2.0s">
+                    <div class="col-md-12">
+
+                      <p>We’re always looking for new projects to work on, if you have some please write us!</p>
+                      <h3><a href="mailto:info@domain.com"><i class="fa fa-envelope"></i> contact@domain.com</a></h3>
+
+                      <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">Send a Message</button>
+
+                    </div>
+                </div>
+
+                <div class="divider_dark"></div>
+
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        <div class="number">
+                            <p><i class="fa fa-mobile-phone"></i> +51 2526148681</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 left col-sm-12">
+                        <div class="address">
+                            <p>
+                                <i class="fa fa-map-marker"></i> 
+                                80, Street name postal code,city name <br><span>Country</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- pattern_bottom -->
+            <div class="pattern_bottom"></div>
+            <!-- end pattern_bottom -->
+
+        </section>
+        <!-- end Contact -->
+<% end %>
